@@ -1,10 +1,11 @@
+import os
 import streamlit as st
 import ollama
 import PyPDF2
 from docx import Document
 
-# Set base URL for Ollama
-ollama.set_base_url("http://localhost:11434")  # Change this if using a public URL for Ollama
+# Set base URL for Ollama via environment variable
+os.environ["OLLAMA_BASE_URL"] = "http://localhost:11434"  # Update if using a public URL
 
 st.title("ActBot")
 
