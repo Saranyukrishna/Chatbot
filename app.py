@@ -3,6 +3,9 @@ import ollama
 import PyPDF2
 from docx import Document
 
+# Set base URL for Ollama
+ollama.set_base_url("http://localhost:11434")  # Change this if using a public URL for Ollama
+
 st.title("ActBot")
 
 # Initialize session state
@@ -18,7 +21,7 @@ def display_chat():
 
 def generate_response():
     try:
-        response = ollama.chat(model='llama2', stream=True, messages=st.session_state.messages)
+        response = ollama.chat(model="llama2", stream=True, messages=st.session_state.messages)
         for partial_resp in response:
             if "message" in partial_resp and "content" in partial_resp["message"]:
                 token = partial_resp["message"]["content"]
@@ -34,7 +37,7 @@ def handle_user_input(prompt):
 
     st.session_state["full_message"] = ""
     response_stream = st.chat_message("assistant", avatar="🤖").write_stream(generate_response)
-    for token in response_stream:
+    for _ in response_stream:
         pass  # Allow streaming
 
     st.session_state["messages"].append({"role": "assistant", "content": st.session_state["full_message"]})
@@ -68,7 +71,7 @@ if uploaded_file:
 
     st.session_state["full_message"] = ""
     response_stream = st.chat_message("assistant", avatar="🤖").write_stream(generate_response)
-    for token in response_stream:
+    for _ in response_stream:
         pass  # Allow streaming
 
     st.session_state["messages"].append({"role": "assistant", "content": st.session_state["full_message"]})
