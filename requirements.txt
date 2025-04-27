@@ -3,3 +3,4 @@ langchain==0.0.184
 openai==0.27.0
 python-dotenv==0.21.1
 altair==4.2.0
+pydantic==2.0.0
