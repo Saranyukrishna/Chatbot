@@ -1,12 +1,12 @@
 import streamlit as st
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage,HumanMessage,AIMessage
+from langchain_groq import ChatGroq
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from dotenv import load_dotenv
 
 load_dotenv()
 
-model = ChatOpenAI(
-    model='llama3-70b-8192',
+model = ChatGroq(
+    model="llama3-70b-8192",
     temperature=1.5
 )
 
