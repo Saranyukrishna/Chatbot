@@ -1,6 +1,7 @@
-streamlit== 1.44.0
-langchain==0.0.184
-openai==0.27.0
-python-dotenv==0.21.1
-altair== 5.5.0
-pydantic==2.11.0
+streamlit==1.33.0  # Latest stable (or >=1.17.0 for Pydantic v2 support)
+langchain==0.1.14   # Newer version (replaces langchain==0.0.184)
+langchain-openai==0.1.1  # Required for ChatOpenAI
+langchain-core==0.1.33   # Required for SystemMessage, HumanMessage, AIMessage
+openai==1.12.0      # OpenAI v1.x (newer API)
+python-dotenv==1.0.0
+pydantic==2.11.0    # Already correct in your setup
