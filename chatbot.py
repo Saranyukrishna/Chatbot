@@ -1,6 +1,6 @@
 import streamlit as st
 from langchain_groq import ChatGroq
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+from langchain_core.messages import SystemMessage,HumanMessage,AIMessage
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,7 +13,7 @@ model = ChatGroq(
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history=[SystemMessage(content="You are a helpful AI assistant")]
 
-st.set_page_config(page_title="Saranyu's Chatbot 🤖", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="Saranyu's Chatbot", page_icon="🤖", layout="wide")
 st.title("Saranyu's Chatbot ")
 
 chat_placeholder=st.container()
